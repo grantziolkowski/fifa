@@ -22,8 +22,6 @@ html {
 .player {
   height: 48px;
   width: 48px;
-  top: 280px;
-  left: 330px;
   background-image: url("../img/player.gif");
   position: relative;
 }
