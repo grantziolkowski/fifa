@@ -47,9 +47,6 @@ var Ball = function() {
 
 };
 
-var Arena = function() {
-  this.$ele = ('<div id="arena"></div>').append($('body'))
-}
 
 
 var shot_distance = (40 - ball.posX);
