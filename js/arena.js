@@ -1,3 +1,3 @@
-Arena = function() {
-  this.$ele = ('<div id="arena"></div>').append($('body'))
+function Arena() {
+  this.$ele = ('<div id="arena"></div>').appendTo($('body'))
 }

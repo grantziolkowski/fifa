@@ -1,4 +1,4 @@
-Ball = function() {
+function Ball() {
   this.posX: 5,
   this.posY: 0,
   shoot: function() {
