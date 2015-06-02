@@ -12,7 +12,7 @@ $(document).ready(function() {
     Mousetrap.bind(dir, function(){
       player.setDir(dir);
     })
-  }
+  })
 })
 
 // Driver Test Code:
