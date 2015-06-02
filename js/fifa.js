@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var arena = new Arena();
   var ball = new Ball();
-  var player = new Player();
+  var player = new Player({ball: ball});
   var shot_distance = (40 - ball.posX);
   var goalie = {
     posX: 35,
