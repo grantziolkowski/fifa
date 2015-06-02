@@ -2,7 +2,7 @@ function Player() {
   this.posX = 0;
   this.posY = 0;
   this.scored = false;
-  this.$ele = $('<div class="player"></div>').appendTo($('body'));
+  this.$ele = $('<div class="player"></div>').appendTo($('#arena'));
 }
 
 Player.prototype.move = function(direction) {

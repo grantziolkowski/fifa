@@ -1,7 +1,7 @@
 function Ball() {
   this.posX = 5;
   this.posY = 0;
-  this.$ele = $('<div id="#ball"></div>').appendTo($('body'));
+  this.$ele = $('<div id="ball"></div>').appendTo($('#arena'));
 }
 
 Ball.prototype.shoot = function() {

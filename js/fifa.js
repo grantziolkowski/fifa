@@ -1,11 +1,12 @@
 $(document).ready(function() {
   var arena = new Arena();
   var ball = new Ball();
+  var player = new Player();
   var shot_distance = (40 - ball.posX);
   var goalie = {
-  posX: 35,
-  posY: Math.floor((Math.random()*20)+10)
-};
+    posX: 35,
+    posY: Math.floor((Math.random()*20)+10)
+  };
 })
 
 // Driver Test Code:
