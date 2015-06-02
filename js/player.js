@@ -1,4 +1,4 @@
-var Player = function() {
+function Player() {
   posX: 0,
   posY: 0,
   scored: false,
