@@ -1,14 +1,10 @@
 $(document).ready(function() {
   var arena = new Arena();
-  var ball = new Ball();
+  var goalie = {posX: 35, posY: Math.floor((Math.random()*20)+10)};
+  var ball = new Ball({goalie: goalie});
   var player = new Player({ball: ball});
-  var shot_distance = (40 - ball.posX);
-  var goalie = {
-    posX: 35,
-    posY: Math.floor((Math.random()*20)+10)
-  };
 
-  ['up','down','right','left'].forEach(function(dir){
+  ['up','down','right','left','z'].forEach(function(dir){
     Mousetrap.bind(dir, function(){
       player.setDir(dir);
     })
