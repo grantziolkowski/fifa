@@ -29,8 +29,6 @@ html {
 #ball {
   height: 20px;
   width: 20px;
-  top: 295px;
-  left: 393px;
   background-image: url("../img/ball.gif");
   position: absolute;
 }
