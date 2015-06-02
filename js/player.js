@@ -34,6 +34,7 @@ Player.prototype.move = function(dir) {
     this.ball.setPos();
   } else {
     this.ball.shoot();
+    this.$ele.hide().fadeIn("fast");
   }
 
 };
