@@ -1,4 +1,4 @@
-var player = function() {
+var Player = function() {
   posX: 0,
   posY: 0,
   scored: false,
@@ -23,7 +23,7 @@ var player = function() {
 
 };
 
-var ball = function() {
+var Ball = function() {
   posX: 5,
   posY: 0,
   shoot: function() {
@@ -46,6 +46,10 @@ var ball = function() {
      }
 
 };
+
+var Arena = function() {
+  this.$ele = ('<div id="arena"></div>').append($('body'))
+}
 
 
 var shot_distance = (40 - ball.posX);
