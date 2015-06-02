@@ -1,0 +1,29 @@
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+#arena {
+  width: 800px;
+  height: 600px;
+  border: 2px solid white;
+  margin: 0 auto;
+  background-image: url("../img/soccerfield_full.jpeg");
+  position: relative;
+}
+
+.small_object {
+
+}
+
+.player {
+  background-image: url("../img/player.gif");
+}
+
+.ball {
+  background-image: url("../img/ball.gif");
+}
+
+.goalie {
+  background-image: url("./img/goalie.png");
+}
+
