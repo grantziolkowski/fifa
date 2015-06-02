@@ -22,7 +22,7 @@ html {
   background-image: url("../img/player.gif");
 }
 
-.ball {
+#ball {
   background-image: url("../img/ball.gif");
 }
 
