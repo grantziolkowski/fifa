@@ -1,6 +1,6 @@
-var Ball = function() {
-  posX: 5,
-  posY: 0,
+Ball = function() {
+  this.posX: 5,
+  this.posY: 0,
   shoot: function() {
     shot_distance = (40 - ball.posX);
     ball.posX +=  shot_distance;
