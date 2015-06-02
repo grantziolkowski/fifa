@@ -1,3 +1,7 @@
+$(document).ready() {
+  arena = new Arena()
+
+}
 
 var shot_distance = (40 - ball.posX);
 
