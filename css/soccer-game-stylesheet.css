@@ -11,6 +11,9 @@ html {
   position: relative;
 }
 
+#title {
+  text-align: center;
+}
 .small_object {
 
 }
