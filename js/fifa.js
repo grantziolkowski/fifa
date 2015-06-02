@@ -7,6 +7,12 @@ $(document).ready(function() {
     posX: 35,
     posY: Math.floor((Math.random()*20)+10)
   };
+
+  ['up','down','right','left'].forEach(function(dir){
+    Mousetrap.bind(dir, function(){
+      player.setDir(dir);
+    })
+  }
 })
 
 // Driver Test Code:
