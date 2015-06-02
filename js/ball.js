@@ -1,7 +1,9 @@
 function Ball() {
   this.posX: 5,
-  this.posY: 0,
-  shoot: function() {
+  this.posY: 0
+}
+
+Ball.prototype.shoot = function() {
     shot_distance = (40 - ball.posX);
     ball.posX +=  shot_distance;
     console.log("You are shooting " + shot_distance + " to the right!")
