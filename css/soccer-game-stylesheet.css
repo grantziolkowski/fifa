@@ -20,6 +20,11 @@ html {
 
 }
 
+#goal {
+  font-family: 'Press Start 2P', cursive;
+  color: red;
+}
+
 .player {
   height: 48px;
   width: 48px;

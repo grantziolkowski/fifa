@@ -28,19 +28,22 @@ Ball.prototype.shoot = function() {
     this.posX +=  shotDistance;
     console.log("You are shooting " + shotDistance + " to the right!")
     this.setPos();
+    var that = this;
     if (this.posY < 265 || this.posY > 325) {
       console.log("You missed, but you get your ball back. Keep playing!")
-      var that = this;
       setTimeout(function(){
-      that.punt();
-    }, 1000);
+        that.punt();
+      }, 1000);
     } else if (this.posY > checkGoalieTop &&
       this.posY < checkGoalieBottom) {
       console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
-      this.posX -= 75
+      this.goalie.slowGrow();
+      setTimeout(function(){
+        that.punt();
+      }, 1000);
     } else {
       console.log("GOAL!!!")
-      saved = false;
+      var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
     }
     console.log("ball", this.posY)
     console.log("top", checkGoalieTop, "bottom", checkGoalieBottom)

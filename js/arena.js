@@ -7,7 +7,6 @@ function Arena() {
 }
 
 Arena.prototype.isInBounds = function(ball){
-  console.log(ball.posY)
   return !(ball.posX < this.leftBound || ball.posX > this.rightBound ||
     ball.posY < this.topBound || ball.posY > this.bottomBound);
 }
