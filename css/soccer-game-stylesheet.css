@@ -44,5 +44,6 @@ html {
   height: 48px;
   width: 48px;
   background-image: url("../img/goalie.png");
+  -webkit-transition: 0.3s ease-in-out;
 }
 

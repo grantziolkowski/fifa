@@ -7,6 +7,8 @@ $(document).ready(function() {
   ['up','down','right','left','space'].forEach(function(dir){
     Mousetrap.bind(dir, function(){
       player.setDir(dir);
+      goalie.moveRand();
     })
   })
+
 })
