@@ -34,7 +34,17 @@ Player.prototype.move = function(dir) {
     this.ball.setPos();
   } else {
     this.ball.shoot();
-    this.$ele.hide().fadeIn("fast");
+    this.flashGrow();
   }
-
 };
+
+Player.prototype.flashGrow = function() {
+  this.$ele.css('background-image', 'url("img/player-large.gif")');
+  this.$ele.css({'width': '65px', 'height': '65px'});
+  this.$ele.hide().fadeIn("fast");
+  var that = this
+  setTimeout(function(){
+    that.$ele.css('background-image', 'url("img/player.gif")');
+    that.$ele.css({'width': '48px', 'height': '48px'});
+   }, 100);
+}

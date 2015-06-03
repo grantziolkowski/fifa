@@ -24,7 +24,7 @@ html {
   height: 48px;
   width: 48px;
   background-image: url("../img/player.gif");
-  position: relative;
+  position: absolute;
 }
 
 .player.active {
@@ -40,6 +40,9 @@ html {
 }
 
 .goalie {
-  background-image: url("./img/goalie.png");
+  position: relative;
+  height: 48px;
+  width: 48px;
+  background-image: url("../img/goalie.png");
 }
 

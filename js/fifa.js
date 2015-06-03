@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var arena = new Arena();
-  var goalie = {posX: 35, posY: Math.floor((Math.random()*20)+10)};
+  var goalie = new Goalie();
   var ball = new Ball({goalie: goalie});
   var player = new Player({ball: ball});
 
