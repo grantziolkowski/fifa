@@ -25,11 +25,7 @@ Ball.prototype.shoot = function() {
     this.setPos();
     if (this.posY < 250 || this.posY > 290) {
       console.log("You missed, but you get your ball back. Keep playing!")
-      var that = this;
-      setTimeout(function(){
-          that.posX -= that.shotDistance;
-          that.setPos();
-      }, 1000);
+      this.punt();
     } else if (this.posY === this.goalie.posY) {
       console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
       this.posX -= 75
@@ -41,3 +37,20 @@ Ball.prototype.shoot = function() {
     this.goalie.posY = Math.floor((Math.random()*20)+10);
 
 };
+
+Ball.prototype.punt = function() {
+  var that = this;
+  that.$ele.css({ fontSize: 0 }).animate({
+    fontSize: 45
+    },{
+    duration: 1500,
+    easing: "swing",
+    step: function(t, fx){
+        that.posX -= that.posX / 171
+        that.posY -= Math.sin(t/9) * 8;
+        that.setPos();
+    }
+});
+
+
+}
