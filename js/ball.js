@@ -24,57 +24,66 @@ Ball.prototype.move = function(x, y) {
 }
 
 Ball.prototype.shoot = function() {
-    var checkGoalieTop = this.goalie.posY + 10
-    var checkGoalieBottom = this.goalie.posY + 30
-    var shotDistance = 730 - this.posX;
-    this.posX +=  shotDistance;
-    console.log("You are shooting " + shotDistance + " to the right!")
-    this.setPos();
-    var that = this;
-    if (this.posY < 265 || this.posY > 325) {
-      console.log("You missed, but you get your ball back. Keep playing!")
-      setTimeout(function(){
-        that.punt();
-      }, 1000);
-    } else if (this.posY > checkGoalieTop &&
-      this.posY < checkGoalieBottom) {
-      console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
-      this.goalie.slowGrow();
-      setTimeout(function(){
-        that.punt();
-      }, 1000);
-    } else {
-      console.log("GOAL!!!")
-      var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
-       $goal.css({ fontSize: 0 }).animate({
-          fontSize: 45
-          },{
-          duration: 2000,
-          easing: "swing",
-          step: function(t, fx){
-              var x =  t*10 + 5
-              var y = 50 + Math.sin(t) * 7;
-              $goal.css({"left": x + "px", "top": y + "px"})
-          },
-          complete: function() {
-            var counter = 0
-            function blinker(){
-              $goal.toggle();
-              counter +=1;
-              if (counter===11){
-                clearInterval(blink)
-              }
-            }
-            var blink = setInterval(blinker, 300)
-            that.posX = CENTER_X;
-            that.posY = CENTER_Y;
-            that.setPos();
-          }
-        })
-
-
-     }
+  var checkGoalieTop = this.goalie.posY + 10
+  var checkGoalieBottom = this.goalie.posY + 30
+  var shotDistance = 730 - this.posX;
+  this.posX += shotDistance;
+  console.log("You are shooting " + shotDistance + " to the right!")
+  this.setPos();
+  if (this.posY < 265 || this.posY > 325) {
+    this.miss();
+  } else if (this.posY > checkGoalieTop &&
+    this.posY < checkGoalieBottom) {
+    this.saved();
+  } else {
+    this.score();
+  }
 };
+
+Ball.prototype.miss = function() {
+  setTimeout(function(){
+    this.punt();
+  }.bind(this), 1000)
+  console.log("You missed, but you get your ball back. Keep playing!")
+}
+
+Ball.prototype.saved = function() {
+  this.goalie.slowGrow();
+  setTimeout(function(){
+    this.punt();
+  }.bind(this), 1000);
+  console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
+}
+
+Ball.prototype.score = function() {
+  var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
+  $goal.css({ fontSize: 0 }).animate({
+    fontSize: 45
+    },{
+    duration: 2000,
+    easing: "swing",
+    step: function(t, fx){
+        var x =  t*10 + 5
+        var y = 50 + Math.sin(t) * 7;
+        $goal.css({"left": x + "px", "top": y + "px"})
+    },
+    complete: function() {
+      var counter = 0
+      function blinker(){
+        $goal.toggle();
+        counter +=1;
+        if (counter===11){
+          clearInterval(blink)
+        }
+      }
+      var blink = setInterval(blinker, 300)
+      this.posX = CENTER_X;
+      this.posY = CENTER_Y;
+      this.setPos();
+    }.bind(this)
+  })
+   console.log("GOAL!")
+}
 
 Ball.prototype.punt = function() {
   this.$ele.removeClass('move')
