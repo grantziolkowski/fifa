@@ -1,6 +1,8 @@
+CENTER_X = 393,
+CENTER_Y = 295
 function Ball(options) {
-  this.posX = 393;
-  this.posY = 295;
+  this.posX = CENTER_X;
+  this.posY = CENTER_Y;
   this.$ele = $('<div id="ball"></div>').appendTo($('#arena'));
   this.$ele.addClass('move')
   this.setPos();
@@ -64,6 +66,9 @@ Ball.prototype.shoot = function() {
               }
             }
             var blink = setInterval(blinker, 300)
+            that.posX = CENTER_X;
+            that.posY = CENTER_Y;
+            that.setPos();
           }
         })
 
