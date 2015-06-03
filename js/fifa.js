@@ -4,7 +4,7 @@ $(document).ready(function() {
   var ball = new Ball({goalie: goalie});
   var player = new Player({ball: ball});
 
-  ['up','down','right','left','z'].forEach(function(dir){
+  ['up','down','right','left','space'].forEach(function(dir){
     Mousetrap.bind(dir, function(){
       player.setDir(dir);
     })

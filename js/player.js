@@ -27,7 +27,7 @@ Player.prototype.move = function(dir) {
   } else if(dir === 'down'){
      this.posY +=10;
   }
-  if (dir != 'z'){
+  if (dir != 'space'){
     this.setPos();
     this.ball.posY = (this.posY + 25);
     this.ball.posX = (this.posX + 48);
