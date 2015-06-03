@@ -27,9 +27,6 @@ html {
   position: absolute;
 }
 
-.player.active {
-  background-color: white;
-}
 
 #ball {
   height: 20px;
@@ -38,8 +35,8 @@ html {
   position: absolute;
 }
 
-.punt {
-  -webkit-transition: 0.1s ease-in-out;
+#ball.move {
+  -webkit-transition: 0.3s ease-in-out;
 }
 
 .goalie {
