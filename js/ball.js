@@ -44,9 +44,31 @@ Ball.prototype.shoot = function() {
     } else {
       console.log("GOAL!!!")
       var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
-    }
-    console.log("ball", this.posY)
-    console.log("top", checkGoalieTop, "bottom", checkGoalieBottom)
+       $goal.css({ fontSize: 0 }).animate({
+          fontSize: 45
+          },{
+          duration: 2000,
+          easing: "swing",
+          step: function(t, fx){
+              var x =  t*10 + 5
+              var y = 50 + Math.sin(t) * 7;
+              $goal.css({"left": x + "px", "top": y + "px"})
+          },
+          complete: function() {
+            var counter = 0
+            function blinker(){
+              $goal.toggle();
+              counter +=1;
+              if (counter===11){
+                clearInterval(blink)
+              }
+            }
+            var blink = setInterval(blinker, 300)
+          }
+        })
+
+
+     }
 };
 
 Ball.prototype.punt = function() {

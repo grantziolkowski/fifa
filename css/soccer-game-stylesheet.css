@@ -22,7 +22,9 @@ html {
 
 #goal {
   font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
   color: red;
+  position: relative;
 }
 
 .player {
