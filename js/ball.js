@@ -38,9 +38,7 @@ Ball.prototype.shoot = function() {
       console.log("GOAL!!!")
       saved = false;
     }
-
     this.goalie.posY = Math.floor((Math.random()*20)+10);
-
 };
 
 Ball.prototype.punt = function() {
@@ -56,5 +54,9 @@ Ball.prototype.punt = function() {
         this.setPos();
     }.bind(this)
 });
+}
 
+Ball.prototype.isInBounds = function() {
+  console.log(this.arena.isInBounds(this))
+  return this.arena.isInBounds(this);
 }

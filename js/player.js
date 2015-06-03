@@ -18,6 +18,8 @@ Player.prototype.setPos = function() {
 }
 
 Player.prototype.move = function(dir) {
+  var oldX = this.posX
+  var oldY = this.posY
   if (dir === 'right'){
     this.posX +=10;
   } else if (dir === 'left'){
@@ -26,6 +28,10 @@ Player.prototype.move = function(dir) {
      this.posY -= 10;
   } else if (dir === 'down'){
      this.posY +=10;
+  }
+  if (!this.ball.isInBounds()){
+      this.posX = oldX;
+      this.posY = oldY;
   }
   if (dir != 'space'){
     this.setPos();
