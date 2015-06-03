@@ -5,6 +5,7 @@ function Ball(options) {
   this.$ele.addClass('move')
   this.setPos();
   this.goalie = options.goalie;
+  this.arena = options.arena;
   var saved = false;
 }
 
