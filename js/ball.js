@@ -4,7 +4,6 @@ function Ball(options) {
   this.$ele = $('<div id="ball"></div>').appendTo($('#arena'));
   this.setPos();
   this.goalie = options.goalie;
-  this.shotDistance = 40 - this.posX;
 }
 
 Ball.prototype.setPos = function() {
@@ -12,15 +11,21 @@ Ball.prototype.setPos = function() {
   this.$ele.css('top', this.posY + 'px')
 }
 
+Ball.prototype.move = function() {
+  this.posY = (this.posY + 25);
+  this.posX = (this.posX + 48);
+  this.setPos();
+}
+
 Ball.prototype.shoot = function() {
     this.shotDistance = 800 - this.posX;
     this.posX +=  this.shotDistance;
     console.log("You are shooting " + this.shotDistance + " to the right!")
     if (this.posY < 10 || this.posY > 30) {
-      console.log("You missed, but you get your this back. Keep playing!")
+      console.log("You missed, but you get your ball back. Keep playing!")
       this.posX -= 75
     } else if (this.posY === this.goalie.posY) {
-      console.log("The goalie saved your shot, but you get your this back. Keep playing!")
+      console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
       this.posX -= 75
     } else {
       console.log("GOAL!!!")

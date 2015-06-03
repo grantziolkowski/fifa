@@ -18,20 +18,18 @@ Player.prototype.setPos = function() {
 }
 
 Player.prototype.move = function(dir) {
-  if(dir === 'right'){
+  if (dir === 'right'){
     this.posX +=10;
-  } else if(dir === 'left'){
+  } else if (dir === 'left'){
     this.posX -=10;
-  } else if(dir === 'up'){
+  } else if (dir === 'up'){
      this.posY -= 10;
-  } else if(dir === 'down'){
+  } else if (dir === 'down'){
      this.posY +=10;
   }
   if (dir != 'space'){
     this.setPos();
-    this.ball.posY = (this.posY + 25);
-    this.ball.posX = (this.posX + 48);
-    this.ball.setPos();
+    this.ball.move();
   } else {
     this.ball.shoot();
     this.flashGrow();
@@ -39,7 +37,7 @@ Player.prototype.move = function(dir) {
 };
 
 Player.prototype.flashGrow = function() {
-  this.$ele.css('background-image', 'url("img/player-large.gif")');
+  this.$ele.css('background-image', 'url("img/player_large.gif")');
   this.$ele.css({'width': '65px', 'height': '65px'});
   this.$ele.hide().fadeIn("fast");
   var that = this
