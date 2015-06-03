@@ -8,7 +8,6 @@ function Ball(options) {
   this.setPos();
   this.goalie = options.goalie;
   this.arena = options.arena;
-  var saved = false;
 }
 
 Ball.prototype.setPos = function() {
@@ -32,8 +31,7 @@ Ball.prototype.shoot = function() {
   this.setPos();
   if (this.posY < 265 || this.posY > 325) {
     this.miss();
-  } else if (this.posY > checkGoalieTop &&
-    this.posY < checkGoalieBottom) {
+  } else if (this.posY > checkGoalieTop && this.posY < checkGoalieBottom) {
     this.saved();
   } else {
     this.score();
