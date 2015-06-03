@@ -29,7 +29,7 @@ Player.prototype.move = function(dir) {
   }
   if (dir != 'space'){
     this.setPos();
-    this.ball.move();
+    this.ball.move(this.posX, this.posY);
   } else {
     this.ball.shoot();
     this.flashGrow();
