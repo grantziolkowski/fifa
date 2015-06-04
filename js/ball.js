@@ -20,7 +20,7 @@ Ball.prototype.move = function(player) {
   this.setPos();
 }
 
-Ball.prototype.shoot = function(player) {
+Ball.prototype.shoot = function() {
   var checkGoalieTop = this.goalie.posY + 10
   var checkGoalieBottom = this.goalie.posY + 30
   var shotDistance = 730 - this.posX;
@@ -32,7 +32,7 @@ Ball.prototype.shoot = function(player) {
   } else if (this.posY > checkGoalieTop && this.posY < checkGoalieBottom) {
     this.saved();
   } else {
-    this.score(player);
+    this.score();
   }
 };
 
@@ -75,7 +75,8 @@ Ball.prototype.score = function(player) {
         }
       }
       var blink = setInterval(blinker, 300)
-      this.arena.reset(this, player);
+      this.arena.reset(this, this.player);
+      this.goalie.moveRand();
     }.bind(this)
   })
    console.log("GOAL!")

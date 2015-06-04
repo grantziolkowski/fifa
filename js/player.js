@@ -4,6 +4,7 @@ function Player(options) {
   this.scored = false;
   this.$ele = $('<div class="player"></div>').appendTo($('#arena'));
   this.ball = options.ball;
+  this.ball.player = this;
   this.arena = options.arena;
   this.setPos();
 }
@@ -23,7 +24,6 @@ Player.prototype.move = function(dir) {
   var oldY = this.posY
   switch(dir) {
     case 'right':
-      console.log('right')
       this.posX +=10;
       break;
     case 'left':
