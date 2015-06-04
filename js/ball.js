@@ -54,6 +54,8 @@ Ball.prototype.saved = function() {
 }
 
 Ball.prototype.score = function() {
+  this.posX += 20;
+  this.setPos();
   var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
   $goal.css({ fontSize: 0 }).animate({
     fontSize: 45
@@ -75,9 +77,7 @@ Ball.prototype.score = function() {
         }
       }
       var blink = setInterval(blinker, 300)
-      this.posX = CENTER_X;
-      this.posY = CENTER_Y;
-      this.setPos();
+      this.arena.reset();
     }.bind(this)
   })
    console.log("GOAL!")
