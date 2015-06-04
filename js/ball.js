@@ -96,7 +96,7 @@ Ball.prototype.punt = function() {
           this.setPos();
       }.bind(this)
     });
-  }.bind(this), 1000)
+  }.bind(this), 700)
 }
 
 Ball.prototype.isInBounds = function() {

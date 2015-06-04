@@ -65,5 +65,5 @@ setTimeout(function() {
   this.posX = this.ball.posX - 48;
   this.posY = this.ball.posY - 25
   this.setPos();
-    }.bind(this), 2000);
+    }.bind(this), 1700);
 }
