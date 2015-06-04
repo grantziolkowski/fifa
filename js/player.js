@@ -1,9 +1,10 @@
 function Player(options) {
-  this.posX = 345;
-  this.posY = 270;
+  this.posX = PLAYER_START_X;
+  this.posY = PLAYER_START_Y;
   this.scored = false;
   this.$ele = $('<div class="player"></div>').appendTo($('#arena'));
   this.ball = options.ball;
+  this.arena = options.arena;
   this.setPos();
 }
 
@@ -35,9 +36,9 @@ Player.prototype.move = function(dir) {
   }
   if (dir != 'space'){
     this.setPos();
-    this.ball.move(this.posX, this.posY);
+    this.ball.move(this);
   } else {
-    this.ball.shoot();
+    this.ball.shoot(this);
     this.flashGrow();
   }
 };

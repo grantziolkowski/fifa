@@ -1,5 +1,3 @@
-CENTER_X = 393,
-CENTER_Y = 295
 function Ball(options) {
   this.posX = CENTER_X;
   this.posY = CENTER_Y;
@@ -15,14 +13,14 @@ Ball.prototype.setPos = function() {
   this.$ele.css('top', this.posY + 'px')
 }
 
-Ball.prototype.move = function(x, y) {
+Ball.prototype.move = function(player) {
   this.$ele.addClass('move')
-  this.posX = x + 48;
-  this.posY = y + 25;
+  this.posX = player.posX + 48;
+  this.posY = player.posY + 25;
   this.setPos();
 }
 
-Ball.prototype.shoot = function() {
+Ball.prototype.shoot = function(player) {
   var checkGoalieTop = this.goalie.posY + 10
   var checkGoalieBottom = this.goalie.posY + 30
   var shotDistance = 730 - this.posX;
@@ -34,7 +32,7 @@ Ball.prototype.shoot = function() {
   } else if (this.posY > checkGoalieTop && this.posY < checkGoalieBottom) {
     this.saved();
   } else {
-    this.score();
+    this.score(player);
   }
 };
 
@@ -53,7 +51,7 @@ Ball.prototype.saved = function() {
   console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
 }
 
-Ball.prototype.score = function() {
+Ball.prototype.score = function(player) {
   this.posX += 20;
   this.setPos();
   var $goal = $('<div id="goal">GOAL!</div>').appendTo($('#arena'));
@@ -77,10 +75,11 @@ Ball.prototype.score = function() {
         }
       }
       var blink = setInterval(blinker, 300)
-      this.arena.reset();
+      this.arena.reset(this, player);
     }.bind(this)
   })
    console.log("GOAL!")
+
 }
 
 Ball.prototype.punt = function() {
