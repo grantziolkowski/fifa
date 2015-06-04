@@ -50,12 +50,12 @@ Player.prototype.move = function(dir) {
 };
 
 Player.prototype.flashGrow = function() {
-  this.$ele.css('background-image', 'url("img/player_large.gif")');
+  this.$ele.css('background-image', 'url("fifa/img/player_large.gif")');
   this.$ele.css({'width': '65px', 'height': '65px'});
   this.$ele.hide().fadeIn("fast");
   var that = this
   setTimeout(function(){
-    that.$ele.css('background-image', 'url("img/player.gif")');
+    that.$ele.css('background-image', 'url("fifa/img/player.gif")');
     that.$ele.css({'width': '48px', 'height': '48px'});
    }, 100);
 }

@@ -17,12 +17,12 @@ Goalie.prototype.moveRand = function() {
 }
 
 Goalie.prototype.slowGrow = function() {
-  this.$ele.css('background-image', 'url("img/goalie_large.png")');
+  this.$ele.css('background-image', 'url("fifa/img/goalie_large.png")');
   this.$ele.css({'width': '70px', 'height': '73px'});
   this.$ele.hide().fadeIn("fast");
   var that = this
   setTimeout(function(){
-    that.$ele.css('background-image', 'url("img/goalie.png")');
+    that.$ele.css('background-image', 'url("fifa/img/goalie.png")');
     that.$ele.css({'width': '46px', 'height': '48px'});
    }, 1000);
 }
