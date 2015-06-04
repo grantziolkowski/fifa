@@ -61,7 +61,9 @@ Player.prototype.flashGrow = function() {
 }
 
 Player.prototype.reset = function() {
+setTimeout(function() {
   this.posX = this.ball.posX - 48;
   this.posY = this.ball.posY - 25
   this.setPos();
+    }.bind(this), 2000);
 }

@@ -37,23 +37,15 @@ Ball.prototype.shoot = function() {
 };
 
 Ball.prototype.miss = function() {
-  setTimeout(function(){
-    this.punt();
-  }.bind(this), 1000)
-  setTimeout(function(){
-    this.player.reset();
-  }.bind(this), 2000);
+  this.punt();
+  this.player.reset();
   console.log("You missed, but you get your ball back. Keep playing!")
 }
 
 Ball.prototype.saved = function() {
   this.goalie.slowGrow();
-  setTimeout(function(){
-    this.punt();
-  }.bind(this), 1000);
-  setTimeout(function(){
-    this.player.reset();
-  }.bind(this), 2000);
+  this.punt();
+  this.player.reset();
   console.log("The goalie saved your shot, but you get your ball back. Keep playing!")
 
 }
@@ -91,18 +83,20 @@ Ball.prototype.score = function(player) {
 }
 
 Ball.prototype.punt = function() {
-  this.$ele.removeClass('move')
-  this.$ele.css({ fontSize: 0 }).animate({
-    fontSize: 45
-    },{
-    duration: 1000,
-    easing: "swing",
-    step: function(t, fx){
-        this.posX -= (900 - this.player.posX) / 110
-        this.posY -= Math.sin(t/9) * 9;
-        this.setPos();
-    }.bind(this)
-});
+  setTimeout(function(){
+    this.$ele.removeClass('move')
+    this.$ele.css({ fontSize: 0 }).animate({
+      fontSize: 45
+      },{
+      duration: 1000,
+      easing: "swing",
+      step: function(t, fx){
+          this.posX -= (900 - this.player.posX) / 110
+          this.posY -= Math.sin(t/9) * 9;
+          this.setPos();
+      }.bind(this)
+    });
+  }.bind(this), 1000)
 }
 
 Ball.prototype.isInBounds = function() {
