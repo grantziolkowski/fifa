@@ -21,5 +21,5 @@ Arena.prototype.reset = function(ball, player) {
   player.posX = PLAYER_START_X;
   player.posY = PLAYER_START_Y;
   ball.setPos();
-  player.setPos()
+  player.setPos();
 }
