@@ -59,3 +59,9 @@ Player.prototype.flashGrow = function() {
     that.$ele.css({'width': '48px', 'height': '48px'});
    }, 100);
 }
+
+Player.prototype.reset = function() {
+  this.posX = this.ball.posX - 48;
+  this.posY = this.ball.posY - 25
+  this.setPos();
+}
