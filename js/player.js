@@ -21,14 +21,20 @@ Player.prototype.setPos = function() {
 Player.prototype.move = function(dir) {
   var oldX = this.posX
   var oldY = this.posY
-  if (dir === 'right'){
-    this.posX +=10;
-  } else if (dir === 'left'){
-    this.posX -=10;
-  } else if (dir === 'up'){
-     this.posY -= 10;
-  } else if (dir === 'down'){
-     this.posY +=10;
+  switch(dir) {
+    case 'right':
+      console.log('right')
+      this.posX +=10;
+      break;
+    case 'left':
+      this.posX -=10;
+      break;
+    case 'up':
+      this.posY -=10;
+      break;
+    case 'down':
+      this.posY +=10;
+      break;
   }
   if (!this.ball.isInBounds()){
       this.posX = oldX;
